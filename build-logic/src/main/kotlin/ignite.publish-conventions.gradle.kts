@@ -19,7 +19,7 @@ publishing {
       pom {
         name.set(project.name)
         description.set(project.description)
-        url.set("https://vectrix.space")
+        url.set("https://maven.floweytf.com/snapshots")
 
         licenses {
           license {
@@ -33,12 +33,16 @@ publishing {
             id.set("vectrix")
             name.set("Vectrix")
           }
+          developer {
+            id.set("Floweynt")
+            name.set("Floweynt")
+          }
         }
 
         scm {
-          connection.set("scm:git:https://github.com/vectrix-space/ignite.git")
-          developerConnection.set("scm:git:https://github.com/vectrix-space/ignite.git")
-          url.set("https://github.com/vectrix-space/ignite.git")
+          connection.set("scm:git:https://github.com/Floweynt/ignite-fork.git")
+          developerConnection.set("scm:git:https://github.com/Floweynt/ignite-fork.git")
+          url.set("https://github.com/Floweynt/ignite-fork.git")
         }
       }
     }
