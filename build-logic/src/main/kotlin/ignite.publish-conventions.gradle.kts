@@ -12,6 +12,16 @@ java {
 }
 
 publishing {
+  repositories {
+    maven {
+      name = "FloweyMaven"
+      url = uri("https://maven.floweytf.com/releases")
+      credentials {
+        username = System.getenv("MAVEN_USERNAME")
+        password = System.getenv("MAVEN_PASSWORD")
+      }
+    }
+  }
   publications {
     create<MavenPublication>("mavenJava") {
       from(components["java"])
@@ -47,19 +57,4 @@ publishing {
       }
     }
   }
-}
-
-signing {
-  sign(publishing.publications["mavenJava"])
-
-  if(project.hasProperty("signingKey") && project.hasProperty("signingPassword")) {
-    useInMemoryPgpKeys(
-      project.property("signingKey").toString(),
-      project.property("signingPassword").toString()
-    )
-  }
-}
-
-tasks.withType(Sign::class) {
-  onlyIf { project.hasProperty("signingKey") && project.hasProperty("signingPassword") }
 }
