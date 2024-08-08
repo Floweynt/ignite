@@ -15,7 +15,7 @@ dependencies {
   }
 
   implementation(libs.mixinExtras) {
-    exclude(group = "org.apache.commons")
+    exclude(group = "sorg.apache.commons")
   }
 
   implementation(libs.accessWidener)

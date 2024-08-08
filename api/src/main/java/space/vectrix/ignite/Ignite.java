@@ -53,4 +53,9 @@ public final class Ignite {
 
   private Ignite() {
   }
+
+  static {
+    System.out.println(Ignite.class.getClassLoader());
+    new Exception().printStackTrace();
+  }
 }

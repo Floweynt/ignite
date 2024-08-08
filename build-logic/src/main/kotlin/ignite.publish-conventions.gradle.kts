@@ -14,11 +14,15 @@ java {
 publishing {
   repositories {
     maven {
-      name = "FloweyMaven"
-      url = uri("https://maven.floweytf.com/releases")
+      name = "MonumentaMaven"
+      url = when (version.toString().endsWith("SNAPSHOT")) {
+        true -> uri("https://maven.playmonumenta.com/snapshots")
+        false -> uri("https://maven.playmonumenta.com/releases")
+      }
+
       credentials {
-        username = System.getenv("MAVEN_USERNAME")
-        password = System.getenv("MAVEN_PASSWORD")
+        username = System.getenv("USERNAME")
+        password = System.getenv("TOKEN")
       }
     }
   }
